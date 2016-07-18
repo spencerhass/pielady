@@ -1,0 +1,34 @@
+// Reponsive Breakpoints
+// @link https://medium.com/@timknight/creating-a-dead-simple-sass-mixin-to-handle-responsive-breakpoints-889927b37740
+///////////////////////////////////////////////////////////////
+@mixin breakpoint($class) {
+  @if $class == sm {
+    // 480px
+    @media (min-width: 30em) { @content; }
+  }
+
+  @else if $class == md {
+    // 768px
+    @media (min-width: 48em) { @content; }
+  }
+
+  @else if $class == lg {
+    // 960px
+    @media (min-width: 60em) { @content; }
+  }
+
+  @else {
+    @warn "Error";
+  }
+}
+
+// Clear Fix for Floats
+///////////////////////////////////////////////////////////////
+@mixin clear-fix {
+  zoom: 1;
+  &:after { clear: both; }
+  &:after, &:before {
+      content: "";
+      display: table;
+  }
+}

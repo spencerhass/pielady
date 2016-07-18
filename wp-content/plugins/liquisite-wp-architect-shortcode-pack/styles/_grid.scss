@@ -1,0 +1,106 @@
+///////////////////////////////////////////////////////////////
+// Shortcode Grid
+///////////////////////////////////////////////////////////////
+
+.col-wrap {
+	@include clear-fix();
+
+	.col {
+		margin: .35em 0;
+	}
+
+	&.two-col {
+		.col {
+			@include breakpoint(md) {
+				@include span( 6 of 12);
+			}
+			&:nth-child(2n+2) {
+				float: none;
+				@include breakpoint(md) {
+					@include last();
+				}
+			}
+		}
+	}
+
+	&.three-col {
+		.col {
+			@include breakpoint(md) {
+				@include span( 4 of 12);
+			}
+			&:nth-child(3n) {
+				float: none;
+				@include breakpoint(md) {
+					@include last();
+				}
+			}
+		}
+	}
+
+	&.four-col {
+		.col {
+			@include breakpoint(sm) {
+				@include span( 6 of 12);
+			}
+			@include breakpoint(md) {
+				@include span( 3 of 12);
+			}
+			&:nth-child(2n+2) {
+				float: none;
+				@include breakpoint(sm) {
+					@include last();
+				}
+				@include breakpoint(md) {
+					margin-right: 1.6949152542%;
+					float: left;
+				}
+			}
+			&:nth-child(4n) {
+				@include breakpoint(md) {
+					float: none;
+					@include last();
+				}
+			}
+		}
+	}
+
+	&.six-col {
+		.col {
+			@include breakpoint(sm) {
+				@include span(6 of 12);
+			}
+			@include breakpoint(md) {
+				@include span(4 of 12);
+			}
+			@include breakpoint(lg) {
+				@include span(2 of 12);
+			}
+			&:nth-child(2n+2) {
+				float: none;
+				@include breakpoint(sm) {
+					@include last();
+				}
+				@include breakpoint(md) {
+					margin-right: 1.6949152542%;
+					float: left;
+				}
+			}
+			&:nth-child(3n) {
+				@include breakpoint(md) {
+					float: none;
+					@include last();
+				}
+				@include breakpoint(lg) {
+					margin-right: 1.6949152542%;
+					float: left;
+				}
+			}
+			&:nth-child(6n) {
+				@include breakpoint(lg) {
+					float: none;
+					@include last();
+				}
+			}
+		}
+	}
+}
